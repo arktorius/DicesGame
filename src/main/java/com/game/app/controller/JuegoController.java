@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,7 +31,7 @@ public class JuegoController {
 	JuegoService service;
 	
 	
-	@PutMapping("/{jugador_id}/juego")
+	@PostMapping("/{jugador_id}/juego")
 	public boolean agregarJuego(@PathVariable long jugador_id,@RequestBody @Valid Juego juego) {
 	
 	return service.crearJuego(juego,jugador_id);	

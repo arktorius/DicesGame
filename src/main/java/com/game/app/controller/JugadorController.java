@@ -28,12 +28,12 @@ public class JugadorController {
 	@Qualifier("service")
 	JugadorService service;
 	
-	@PutMapping("/jugador")
+	@PostMapping("/jugador")
 	public boolean agregarJugador(@RequestBody @Valid Jugador jugador) {
 		
 	return service.crear(jugador);	
 	}
-	@PostMapping("/jugador")
+	@PutMapping("/jugador")
 	public boolean actualizarJugador(@RequestBody @Valid Jugador jugador) {
 		
 	return service.actualizar(jugador);	
