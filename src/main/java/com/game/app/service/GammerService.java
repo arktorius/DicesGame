@@ -1,5 +1,7 @@
 package com.game.app.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -29,5 +31,17 @@ public class GammerService {
 		
 		return true;
 		
+	}
+	public MGammer getOneGammer(Long id) {
+		Gammer gammer = new Gammer();
+		gammer = gammerRepository.findByIdGammer(id);
+		MGammer oneGammer =new MGammer(gammer);
+		System.out.println(oneGammer);
+		return oneGammer;
+	}
+	
+	public List<MGammer> allGammers(){
+		List<MGammer> allGammers=converter.gammerConverter(gammerRepository.findAll());
+		return allGammers;
 	}
 }

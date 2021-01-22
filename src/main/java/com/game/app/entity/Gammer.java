@@ -25,12 +25,14 @@ public class Gammer {
 
 		this.name = name;
 	}
-	
 
-	public Gammer() {
-		
+	public Gammer(long idGammer) {
+		this.idGammer = idGammer;
 	}
 
+	public Gammer() {
+
+	}
 
 	public long getIdGammer() {
 		return idGammer;

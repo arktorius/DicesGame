@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -12,17 +12,22 @@ public class Games {
 	@Id
 	@GeneratedValue
 	private Long idGamme;
-	
-	@ManyToOne(fetch = FetchType.LAZY)
 
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="idGammer")
 	private Gammer gammer;
 
-	private int dice1 = (int) (Math.random() * 7 + 1);
-	private int dice2 = (int) (Math.random() * 7 + 1);
+	private int dice1 = (int) (Math.random() * 6 + 1);
+	private int dice2 = (int) (Math.random() * 6 + 1);
 
 	private String result;
+	
+	
 
-
+	public Games(Long id) {
+		
+		this.gammer = new Gammer(id);
+	}
 
 	public Long getIdGamme() {
 		return idGamme;
@@ -63,6 +68,11 @@ public class Games {
 	public void setResult(String result) {
 		this.result = result;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "Games [idGamme=" + idGamme + ", gammer=" + gammer + ", dice1=" + dice1 + ", dice2=" + dice2
+				+ ", result=" + result + "]";
+	}
+
 }

@@ -10,5 +10,5 @@ import com.game.app.entity.Gammer;
 @Repository("RepositoryGammer")
 public interface GammerRepository extends JpaRepository<Gammer, Serializable> {
 
-	//public abstract Gammer save(Gammer gammer);
+	public abstract Gammer findByIdGammer(Long  id);
 }

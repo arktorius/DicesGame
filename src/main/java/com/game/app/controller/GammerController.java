@@ -1,5 +1,7 @@
 package com.game.app.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,10 +33,12 @@ public class GammerController {
 	}
 
 	@GetMapping("/{id}")
-	public boolean test(@PathVariable Long id) {
-		Gammer gammer=new Gammer();
-		
-		System.out.println(gammer.toString()+ id);
-		return true;
+	public MGammer getOneGammer(@PathVariable Long id) {
+
+		return gammerService.getOneGammer(id);
+	}
+	@GetMapping("")
+	public List<MGammer> getAllGammers(){
+		return gammerService.allGammers();
 	}
 }
