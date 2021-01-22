@@ -25,8 +25,10 @@ public class GamesService {
 	@Qualifier("listConverter")
 	private ListConverter converter;
 
-	public MGames createGame(Long id) {
-
+	public boolean createGame(Long id) {
+		
+		if(!gammerRepository.existsById(id)){return false;};
+		
 		Games game = new Games(id);
 		// Set Result of game
 		if ((game.getDice1() + game.getDice2()) == 7) {
@@ -46,14 +48,16 @@ public class GamesService {
 				counter++;
 			}
 		}
+		
+		if(counter>0) {
 		float totalGames=allGames.size();
 		
-		gammer.setStatistics(counter);
+		gammer.setStatistics(counter/totalGames);
 		
 		gammerRepository.save(gammer);
 
-		
-		return null;
+		}
+		return true;
 	}
 	public List<Games> getAllGames(){
 		return gameRepository.findAll();

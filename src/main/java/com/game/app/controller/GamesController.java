@@ -23,7 +23,7 @@ public class GamesController {
 	private GamesService gamesService;
 	
 	@PostMapping("/{id}")
-	public MGames createGame(@PathVariable Long id) {
+	public boolean createGame(@PathVariable Long id) {
 		return gamesService.createGame(id);
 	}
 	@GetMapping("")
