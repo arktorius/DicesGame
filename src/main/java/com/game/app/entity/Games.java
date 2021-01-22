@@ -14,19 +14,21 @@ public class Games {
 	private Long idGamme;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="idGammer")
+	@JoinColumn(name = "idGammer")
 	private Gammer gammer;
 
 	private int dice1 = (int) (Math.random() * 6 + 1);
 	private int dice2 = (int) (Math.random() * 6 + 1);
 
 	private String result;
-	
-	
 
 	public Games(Long id) {
-		
+
 		this.gammer = new Gammer(id);
+	}
+
+	public Games() {
+
 	}
 
 	public Long getIdGamme() {
