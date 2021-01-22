@@ -10,7 +10,7 @@ import com.game.app.entity.Gammer;
 import com.game.app.model.MGames;
 import com.game.app.model.MGammer;
 
-@Component
+@Component("listConverter")
 public class ListConverter {
 
 	public List<MGammer> gammerConverter(List<Gammer> gammers) {

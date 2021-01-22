@@ -13,17 +13,17 @@ import com.game.app.repository.GammerRepository;
 @Service("gammerService")
 public class GammerService {
 	@Autowired
-	
+	@Qualifier("RepositoryGammer")
 	private GammerRepository gammerRepository;
 	@Autowired
-
+	@Qualifier("RepositoryGames")
 	private GamesRepository gameRepository;
 	@Autowired
-	
+	@Qualifier("listConverter")
 	private ListConverter converter;
 	
 	public boolean createGammer(MGammer newMGammer) {
-		
+	
 		
 		gammerRepository.save(new Gammer(newMGammer.getName()));
 		

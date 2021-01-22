@@ -25,6 +25,12 @@ public class Gammer {
 
 		this.name = name;
 	}
+	
+
+	public Gammer() {
+		
+	}
+
 
 	public long getIdGammer() {
 		return idGammer;
@@ -56,6 +62,12 @@ public class Gammer {
 
 	public void setGames(List<Games> games) {
 		this.games = games;
+	}
+
+	@Override
+	public String toString() {
+		return "Gammer [idGammer=" + idGammer + ", name=" + name + ", statistics=" + statistics + ", games=" + games
+				+ "]";
 	}
 
 }
