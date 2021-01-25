@@ -6,9 +6,11 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -40,5 +42,17 @@ public class GammerController {
 	@GetMapping("")
 	public List<MGammer> getAllGammers(){
 		return gammerService.allGammers();
+	}
+	@PutMapping("/{id}")
+	public boolean editGammer(@PathVariable Long id,@RequestBody @Valid MGammer gammer) {
+		return gammerService.editGammer(id, gammer);
+	}
+	@DeleteMapping("/{id}")
+	public boolean delOneGammer(@PathVariable Long id) {
+		return gammerService.deleteOneGammer(id);
+	}
+	@DeleteMapping("")
+	public boolean delAll() {
+		return gammerService.deleteAllGammers();
 	}
 }

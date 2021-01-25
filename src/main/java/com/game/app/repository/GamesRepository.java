@@ -11,5 +11,6 @@ import com.game.app.entity.Games;
 public interface GamesRepository extends JpaRepository<Games, Serializable> {
 	
 	public abstract List<Games> findByGammerIdGammer(Long id);
+	//public abstract void deleteByGammeridGammer(Long id);
 
 }
