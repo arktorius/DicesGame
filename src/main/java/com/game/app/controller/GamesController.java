@@ -27,7 +27,7 @@ public class GamesController {
 		return gamesService.createGame(id);
 	}
 	@GetMapping("")
-	public List<Games> getGamesofGammer(){
+	public List<MGames> getGamesofGammer(){
 		return gamesService.getAllGames();
 	}
 }

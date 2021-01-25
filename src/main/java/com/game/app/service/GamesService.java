@@ -59,7 +59,7 @@ public class GamesService {
 		}
 		return true;
 	}
-	public List<Games> getAllGames(){
-		return gameRepository.findAll();
+	public List<MGames> getAllGames(){
+		return converter.gamesConverter(gameRepository.findAll()) ;
 	}
 }
